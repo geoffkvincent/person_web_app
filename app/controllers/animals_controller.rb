@@ -25,7 +25,11 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    
+    if @animal.update(animal_params)
+      redirect_to animals_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,5 +42,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
+    params.require(:animal).permit(:name, :age, :hair_color, :eye_color, :gender, :alive)
   end
 end
