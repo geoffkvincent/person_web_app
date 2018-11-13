@@ -8,9 +8,14 @@ class AnimalsController < ApplicationController
   end
 
   def new
+    @animal = Animal.new
   end
 
   def create
+    @animal = Animal.new(animal_params)
+
+    if @animal.save
+      redirect_to 
   end
 
   def edit
@@ -25,6 +30,7 @@ class AnimalsController < ApplicationController
   private
 
   def set_animal
+    @animal = Animal.find(params[:id])
   end
 
   def animal_params
