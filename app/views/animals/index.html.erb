@@ -1,5 +1,8 @@
 <h1>People</h1>
+<h4><%= link_to 'New Person', new_animal_path %></h4>
 <% @animals.each do |animal| %>
   <h5> <%= animal.name %> </h5>
   <%= link_to 'Show', animal_path(animal) %>
+  <%= link_to 'Edit', edit_animal_path(animal) %>
+  <%= link_to 'Delete', animal, method: :delete %>
 <%end%>
